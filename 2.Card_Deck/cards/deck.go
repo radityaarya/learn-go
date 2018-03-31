@@ -4,6 +4,7 @@ import "fmt"
 
 type deck []string
 
+// create and return a list of cards (array of strings)
 func newDeck() deck {
 	cards := deck{}
 
@@ -19,8 +20,17 @@ func newDeck() deck {
 	return cards
 }
 
+// print out the content of a deck of cards
 func (d deck) print() {
 	for index, card := range d {
 		fmt.Println(index+1, card)
 	}
+}
+
+// split deck into 2 => hand and deck. total cards on hand called DEAL
+func deal(d deck, sizeOfDeal int) (deck, deck) {
+	cardsOnHand := d[0:sizeOfDeal] // shorter syntax => d[:sizeOfDeal] only if start from 0
+	cardsOnDeck := d[sizeOfDeal:]
+
+	return cardsOnHand, cardsOnDeck
 }

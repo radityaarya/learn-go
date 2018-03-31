@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
 	cards := newDeck()
 
@@ -11,5 +7,6 @@ func main() {
 
 	// takenCard.print()
 	// remainCard.print()
-	fmt.Println(cards.arrToString())
+	// fmt.Println(cards.arrToString())
+	cards.saveToFile("my_cards")
 }

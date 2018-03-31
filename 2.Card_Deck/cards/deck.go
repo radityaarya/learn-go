@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -41,4 +42,10 @@ func deal(d deck, sizeOfDeal int) (deck, deck) {
 // convert array to string to string comma-separated
 func (d deck) arrToString() string {
 	return strings.Join(d, ",")
+}
+
+// to save deck (string) to a file
+func (d deck) saveToFile(fileName string) error {
+	deckInByte := []byte(d.arrToString())
+	return ioutil.WriteFile(fileName, deckInByte, 0666)
 }

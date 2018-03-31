@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type deck []string
 
@@ -33,4 +36,9 @@ func deal(d deck, sizeOfDeal int) (deck, deck) {
 	cardsOnDeck := d[sizeOfDeal:]
 
 	return cardsOnHand, cardsOnDeck
+}
+
+// convert array to string to string comma-separated
+func (d deck) arrToString() string {
+	return strings.Join(d, ",")
 }

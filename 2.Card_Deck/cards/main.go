@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	cards := newDeckFromFile("my_csards")
+	cards := newDeck()
 
 	// takenCard, remainCard := deal(cards, 5)
 
@@ -9,5 +9,6 @@ func main() {
 	// remainCard.print()
 	// fmt.Println(cards.arrToString())
 	// cards.saveToFile("my_cards")
+	cards.shuffle()
 	cards.print()
 }

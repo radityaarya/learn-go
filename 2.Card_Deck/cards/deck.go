@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 type deck []string
@@ -62,4 +64,23 @@ func (d deck) arrToString() string {
 func (d deck) saveToFile(fileName string) error {
 	deckInByte := []byte(d.arrToString())
 	return ioutil.WriteFile(fileName, deckInByte, 0666)
+}
+
+// to shuffle card's order on deck
+func (d deck) shuffle() deck {
+	// create new source
+	// NewSource returns a new pseudo-random Source seeded with the given value.
+	s := rand.NewSource(time.Now().UnixNano())
+	// create new rand with new source seeded (s)
+	r := rand.New(s)
+
+	// shuffle time!
+	for i := range d {
+		newPosition := r.Intn(len(d))
+
+		// how to swap value of array on GO 😎
+		d[i], d[newPosition] = d[newPosition], d[i]
+	}
+
+	return d
 }

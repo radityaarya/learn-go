@@ -68,11 +68,10 @@ func (d deck) saveToFile(fileName string) error {
 
 // to shuffle card's order on deck
 func (d deck) shuffle() deck {
-	// create new source
-	// NewSource returns a new pseudo-random Source seeded with the given value.
 	s := rand.NewSource(time.Now().UnixNano())
-	// create new rand with new source seeded (s)
 	r := rand.New(s)
+
+	// check '~/Algorithms/randomNumber.go'
 
 	// shuffle time!
 	for i := range d {

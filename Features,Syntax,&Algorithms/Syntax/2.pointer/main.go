@@ -28,9 +28,11 @@ func main() {
 	fmt.Println("without pointer => ", cat1)
 
 	// use pointer #1 way
-	catPointer := &cat1
-	catPointer.updateAge()
-	fmt.Println("using pointer =>", *catPointer)
+	// give "cat1Pointer" access to the memory address that "cat1" struct is sitting at
+	// now "cat1Pointer" points/references to "cat1"  memory address address
+	cat1Pointer := &cat1
+	cat1Pointer.updateAge()
+	fmt.Println("using pointer =>", *cat1Pointer)
 
 	// use pointer #2 way
 	cat2.updateAge()
@@ -50,6 +52,7 @@ func (c cat) updateName() {
 }
 
 // and this is it
+// (*) at the begining of type != pointer. it means we're working with pointer to a cat
 func (c *cat) updateAge() {
 	(*c).age = (*c).age + 2
 }

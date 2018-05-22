@@ -10,9 +10,9 @@
 /*
  * example :
  *
- *   |  	English Bot			       			  |		Spanish Bot                           |
+ *   |      English Bot                           |     Spanish Bot                           |
  *   |--------------------------------------------|-------------------------------------------|
- * 1 | type englishBot struct                     |  type spanishBot struct					  |
+ * 1 | type englishBot struct                     |  type spanishBot struct                   |
  * 2 | func (englishBot) getGreeting() string {}  |  func (spanishBot) getGreeting() string {}|
  * 3 | func printGreeting(eb englishBot) {}       |  func printGreeting(sb spanishBot) {}     |
  *

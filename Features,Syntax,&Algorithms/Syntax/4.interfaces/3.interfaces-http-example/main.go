@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 )
@@ -27,4 +28,7 @@ func main() {
 	bs := make([]byte, 99999)
 	res.Body.Read(bs)
 	fmt.Println(string(bs))
+
+	// or we can use build in method Copy
+	io.Copy(os.Stdout, res.Body)
 }
